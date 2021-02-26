@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <title>
+        JavaScript Assignment
+    </title>
+ 
+<body>
+
+<h1>Hidden things by Vivek Drakshapally</h1>
+<h2>Getting Input</h2>
+
+<form>
+    <label for="pass_input">Enter the secret word </label>
+    <input type ="password" id="pass_input" name="pass" value="Secret"> <br>
+
+    <label for="guess_input">Enter a guess </label>
+    <input type ="text" id="guess_input" name="guess"> <br>
+
+    <input type="button" onclick="processGuess()" value="Check the guess">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+<div class="container">
+    <img src="daffodil.jpg" id="rotate" onclick="rotateImage()" width="200px" height="200px">
+</div>
+<script> 
+var correct = 0;
+var wrong = 0;
+var currentImage = 0;
+
+function processGuess(){
+    console.log("Getting form values")
+    secret = document.getElementById("pass_input").value
+    guess = document.getElementById("guess_input").value
+    out = document.getElementById("result")
+    if(secret == guess){
+        correct=correct+1;
+        alert("Congratulations");
+        out.innerHTML =correct
+    }else{
+         wrong=wrong+1;
+         alert("Sorry");
+         out.innerHTML = wrong
+    }
+    
+}
+
+function rotateImage(){
+
+switch (currentImage) {
+  case 0:
+  document.getElementById("rotate").src = "daffodil.jpg";
+  currentImage=1;
+    break;
+  case 1:
+  document.getElementById("rotate").src = "hibiscus.jpg";
+  currentImage=2;
+    break;
+  case 2:
+  document.getElementById("rotate").src = "rose.jpeg";
+  currentImage=0;
+    break;
+  default:
+  document.getElementById("rotate").src = "daffodil.jpg";
+  
+}
+
+
+}
+</script>
+
+
+
+</body>
+</html> 
