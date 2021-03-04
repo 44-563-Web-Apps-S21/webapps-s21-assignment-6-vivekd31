@@ -1,38 +1,84 @@
 <!DOCTYPE html>
 <html>
- <head>
-     <title>Math Arithmetic</title>
- </head>
+
+<head>
+    <title>Math Arithmetic</title>
+</head>
+
 <body>
-<h1>Vivek Drakshapally computes</h1>
-<form>
-    <label for="number_1">What is your age </label>
-    <input type ="number" id="number_1" name="number_1" value=10> <br>
+    <h1>Vivek Drakshapally computes</h1>
+    <form>
+        <label for="number_1">What is your age </label>
+        <input type="number" id="number_1" name="number_1" value=10> <br>
 
-    <label for="number_2">Enter number </label>
-    <input type ="text" id="number_2" name="number_2" value=2> <br>
+        <label for="number_2">Enter number </label>
+        <input type="text" id="number_2" name="number_2" value=2> <br>
 
-    <button type="button" onclick="permutations()">Compute</button>
+        <button type="button" onclick="permutations()">Compute</button>
 
-</form>
-<div id="First result"></div>
+    </form>
+    <div id="First_result"></div>
+    <form>
 
-<script>
+        <input type="radio" id="addition_radio" onclick="processRadio()" name="Workingonradio" value="plus">
+        <label for="addition_radio">+ </label>
+        <br>
+        <input type="radio" id="subtraction_radio" onclick="processRadio()" name="Workingonradio" value="minus">
+        <label for="subtraction_radio">- </label>
+        <br>
+        <input type="radio" id="multiplication_radio" onclick="processRadio()" name="Workingonradio" value="times">
+        <label for="multiplication_radio">* </label>
+        <br>
+        <input type="radio" id="division_radio" onclick="processRadio()" name="Workingonradio" value="divide">
+        <label for="division_radio">/ </label>
 
-    function permutations() {
-        var firstinput = document.getElementById("number_1").value;
-        var scndinput = document.getElementById("number_2").value;
-        var product = 1;
-        for (let i = firstinput; i >= (firstinput - scndinput + 1); i--) {
-            product *= i;
+
+
+    </form>
+
+    <div id="Second_result"></div>
+
+    <script>
+
+        function permutations() {
+            var firstinput = document.getElementById("number_1").value;
+            var scndinput = document.getElementById("number_2").value;
+            var product = 1;
+            for (let i = firstinput; i >= (firstinput - scndinput + 1); i--) {
+                product *= i;
+            }
+            document.getElementById("First_result").innerHTML = product;
+
+
         }
-        document.getElementById("First result").innerHTML = product;
 
+        function processRadio() {
 
-    }
+            var firstinput = parseInt(document.getElementById("number_1").value);
+            var scndinput = parseInt(document.getElementById("number_2").value);
 
-</script>
+            process = document.getElementById("Second_result")
+            if (document.getElementById("addition_radio").checked) {
 
+                process.innerHTML = (firstinput + scndinput);
+
+            } else if (document.getElementById("subtraction_radio").checked) {
+
+                process.innerHTML = firstinput - scndinput;
+
+            } else if (document.getElementById("multiplication_radio").checked) {
+
+                process.innerHTML = firstinput * scndinput;
+
+            } else {
+
+                process.innerHTML = firstinput / scndinput;
+
+            }
+
+        }
+
+    </script>
 
 </body>
 
