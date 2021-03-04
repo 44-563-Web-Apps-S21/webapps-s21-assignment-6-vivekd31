@@ -38,23 +38,36 @@
         var my_bear = {};
         function startbear() {
             my_bear = {};
-            if (document.getElementById("hat_box").checked) {
+            if (document.getElementById("box_hat").checked) {
                 my_bear["hat"] = true;
             } else {
                 my_bear["hat"] = false;
             }
-            if (document.getElementById("scarf_box").checked) {
+            if (document.getElementById("box_scarf").checked) {
                 my_bear["scarf"] = true;
             } else {
                 my_bear["scarf"] = false;
             }
-            if (document.getElementById("shirt_box").checked) {
+            if (document.getElementById("box_shirt").checked) {
                 my_bear["shirt"] = true;
             } else {
                 my_bear["shirt"] = false;
             }
-        }
+        
 
+        my_bear= JSON.stringify(my_bear);
+    document.getElementById("result").innerHTML=my_bear
+    my_bear= JSON.parse(my_bear)
+    }
+function updatebear() {
+            var prop = document.getElementById("Property_of_the_box").value;
+            var values = document.getElementById("value_of_the_box").value;
+            my_bear[prop] = values;
+
+            my_bear = JSON.stringify(my_bear);
+            document.getElementById("result").innerHTML = my_bear;
+            my_bear = JSON.parse(my_bear);
+        }
     </script>
 </body>
 
