@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>Math Arithmetic</title>
+ </head>
+<body>
+<h1>Vivek Drakshapally computes</h1>
+<form>
+    <label for="number_1">What is your age </label>
+    <input type ="number" id="number_1" name="number_1" value=10> <br>
+
+    <label for="number_2">Enter number </label>
+    <input type ="text" id="number_2" name="number_2" value=2> <br>
+
+    <button type="button" onclick="permutations()">Compute</button>
+
+</form>
+<div id="First result"></div>
+
+<script>
+
+    function permutations() {
+        var firstinput = document.getElementById("number_1").value;
+        var scndinput = document.getElementById("number_2").value;
+        var product = 1;
+        for (let i = firstinput; i >= (firstinput - scndinput + 1); i--) {
+            product *= i;
+        }
+        document.getElementById("First result").innerHTML = product;
+
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
